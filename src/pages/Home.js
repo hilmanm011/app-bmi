@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import './Home.css'
+import {
+    Card,
+    CardTitle
+  } from 'reactstrap';
+import '../App.css'
 
 
 const api = axios.create({
@@ -24,6 +28,7 @@ export default class Home extends React.Component {
 
     getPersons = async () => {
         await api.get('/users').then(({ data }) => {
+            console.log(data);
             this.setState({persons: data})
         })
     }
@@ -45,57 +50,73 @@ export default class Home extends React.Component {
 
   render() {
       return (
-          <div className='container'>
-              <h3>Body Mass Index (BMI)</h3>
-              <form
-                  method='post'
-                  onSubmit={this.countData }
-              >
-                  <label>Nama: </label>
-                  <input
-                      type='text'
-                      placeholder='Masukan nama'
-                      name='nama'
-                      onChange={(e) => {
-                          this.setState({nama: e.target.value})
-                      }}
-                  />
-
-                  <br/>
-                  <label>Berat: </label>
-                  <input
-                      type='number'
-                      placeholder='Exp: 60'
-                      name='berat'
-                      onChange={(e) => {
-                        this.setState({berat: e.target.value})
-                    }}
-                  />
-                  <br/>
-                  <label>Tinggi: </label>
-                  <input
-                      type='text'
-                      placeholder='Exp: 1.70'
-                      name='tinggi'
-                      onChange={(e) => {
-                        this.setState({tinggi: e.target.value})
-                    }}
-                  />
-                  <br/>
-                  <button type='submit'>Submit</button>
-              </form>
-            <ul>
-            {this.state.persons.map(person =>
-                <div key={person.nama}>
-                    <h4 style={{color: 'blueviolet'}}>Your BMI Category {person.category} ({person.bmi})</h4>
-                    <p><b>Nama: </b>{person.nama}</p>
-                    <p><b>Berat Badan: </b>{person.berat}</p>
-                    <p><b>Tinggi Badan: </b>{person.tinggi}</p>
+          <div>
+        <div className="form-comp cfb">
+        <h1 style={{color: '#035E7B', fontWeight:'800'}}>Body Mass Index</h1>
+        <form
+            className="sign-up-form cfb"
+            method='post'
+            onSubmit={this.countData}>
+          <label style={{color: '#595959', fontWeight:'700'}} >
+            Siapa nama anda?
+            <br/>
+            <input style={{height: '30px', color: '#595959', fontWeight:'400', borderRadius: '1em'}}
+                type='text'
+                placeholder='Masukan nama'
+                name='nama'
+                onChange={(e) => {
+                    this.setState({nama: e.target.value})
+                              }}
+                required
+             />
+          </label>
+          <label style={{color: '#595959', fontWeight:'700'}}>
+          Berapa berat badan Anda? (kg)
+            <br/>
+            <input style={{height: '30px', color: '#595959', fontWeight:'400', borderRadius: '1em'}}
+                type='number'
+                placeholder='Exp: 60'
+                name='berat'
+                onChange={(e) => {
+                    this.setState({berat: e.target.value})
+                              }}
+                              required
+            />
+          </label>
+          <label style={{color: '#595959', fontWeight:'700'}}>
+          Berapa tinggi Anda? (cm)
+            <br/>
+            <input style={{height: '30px', color: '#595959', fontWeight:'400', borderRadius: '1em'}}
+                type='text'
+                placeholder='Exp: 1.70'
+                name='tinggi'
+                onChange={(e) => {
+                    this.setState({tinggi: e.target.value})
+                              }}
+                              required
+            />
+          </label>
+          <br/>
+          <button type='submit' >
+            Hitung!
+          </button>
+            </form>
+            
+        </div>
+              <hr />
+              {this.state.persons.map(person =>
+              <Card body style={{textAlign:'center'}}>
+                <CardTitle tag="h4" style={{color: '#035E7B'}}>Your BMI Category {person.category} ({person.bmi})</CardTitle>
+                <div key={person.id}>
+                    <p style={{color: '#595959', fontWeight:'700'}}>{person.nama}</p>
+                    <p style={{color: '#595959', fontWeight:'500'}}>Berat Badan: {person.berat}kg</p>
+                    <p style={{color: '#595959', fontWeight:'500'}}>Tinggi Badan: {person.tinggi}m</p>
                     <hr/>
                 </div>
-            )}
-            </ul>
-        </div>
+                  </Card>
+                  )}
+    </div>
+              
     )
   }
 }

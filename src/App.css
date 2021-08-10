@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+/* App */
+.App{
+    background-color: #e4bcda;
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Quikly Center Everything In Div */
+.cfb{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* Container Styling */
+.Container{
+    position: relative; 
+
+    width: 50%;
+    height: 60%;
+
+    box-shadow: 1px 2px 2px #592941;
+    border: 0.1em solid #592941;
+    border-radius: 0.5em;
+
+    background-image: url('./shapes.jpg'); 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Banner Side of Container */
+.banner-side{
+    position: absolute;
+    z-index: 2;
+    right: 65%;
+
+    border: 0.1em solid #592941;
+    border-radius: 0.5em;
+
+    width: 35%;
+    height: 100%;
+
+    flex-direction: column;
+
+    background-color: #035E7B;
+    opacity: 1;
+
+    color: #EEFCF8;
+    text-align: center;
+
+    transition: 2s;
 }
 
-.App-link {
-  color: #61dafb;
+/* Form Side of Container */
+.form-side{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+
+    border: 0.1em solid #592941;
+    border-radius: 0.5em;
+
+    width: 65%;
+    height: 100%;
+
+    background-color: #EEFCF8;
+    opacity: 1;
+
+    font-weight: bold;
+    color: #035E7B;
+
+    transition: 2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.send-right{
+    right: 0;
+}
+
+.send-left{
+    right: 35%;
+}
+
+
+/* Layout styling of forms, labels, inputs */
+.form-comp{
+    flex-direction: column;
+}
+
+.sign-up-form{
+    width: 50%;
+    flex-direction: column;
+}
+
+.sign-up-form > label{
+    padding: 0.5em;
+    width: 100%
+}
+
+.sign-up-form > label > input{
+    width: 100%
+}
+
+
+/* All Buttons Styling */
+button {
+    padding: 1em;
+
+    border: 1px solid #EEFCF8;
+    border-radius: 1em;
+    
+    background-color: #035E7B;
+
+    color: #EEFCF8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+/* All Inputs Styling */
+input {
+    padding: 0.5em;
+    border: 1px solid #035E7B;
 }
