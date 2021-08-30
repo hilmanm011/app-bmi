@@ -84,7 +84,7 @@ export default class Home extends React.Component {
             />
           </label>
           <label style={{color: '#595959', fontWeight:'700'}}>
-          Berapa tinggi Anda? (cm)
+          Berapa tinggi Anda? (m)
             <br/>
             <input style={{height: '30px', color: '#595959', fontWeight:'400', borderRadius: '1em'}}
                 type='text'
