@@ -2,6 +2,7 @@ import preferredMerchantIcon from "./icons/icon-preferred-merchant.svg";
 import merchants from "./data/merchants.json";
 import "./App.css";
 
+
 function App() {
   return (
     <section className="page">
