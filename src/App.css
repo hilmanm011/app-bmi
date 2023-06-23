@@ -1,129 +1,133 @@
-/* App */
-.App{
-    background-color: #e4bcda;
-    height: 100vh;
+body {
+  font-family: "Nunito Sans", sans-serif;
 }
 
-/* Quikly Center Everything In Div */
-.cfb{
+.page {
+  padding-inline: 16px;
+  padding-block: 32px;
+  width: 100vw;
+}
+
+h1 {
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+h2 {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.merchants {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.merchant {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+.merchant-thumbnail {
+  height: 96px;
+  width: 96px;
+  flex-shrink: 0;
+  position: relative;
+}
+.merchant-thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.promo-tag {
+  position: absolute;
+  top: 8px;
+  left: -4px;
+  padding: 4px;
+  color: white;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bold;
+  background: #00b14f;
+}
+.tag-tail {
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+  border-color: transparent #008c3f transparent transparent;
+  position: absolute;
+  top: 24px;
+  left: 0;
+}
+.preferred-merchant {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: 88px;
+}
+.preferred-merchant span {
+  display: none;
+}
+.merchant-description {
+  width: 100%;
+  word-wrap: break-word;
+  min-height: 1px;
+}
+.merchant-detail {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 20px;
+}
+.merchant-detail > p {
+  margin-bottom: 4px;
+}
+.merchant-detail > div {
+  display: flex;
+  gap: 16px;
+}
+.merchant-detail > div > div > span:first-child {
+  margin-right: 8px;
+}
+
+@media (min-width: 640px) {
+  .page {
+    padding: 64px 12.5vw;
+  }
+
+  .merchants {
+    grid-template-columns: 1fr 1fr;
+  }
+  .merchant {
+    display: block;
+  }
+  .merchant h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .merchant-thumbnail {
+    height: 144px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Container Styling */
-.Container{
-    position: relative; 
-
-    width: 50%;
-    height: 60%;
-
-    box-shadow: 1px 2px 2px #592941;
-    border: 0.1em solid #592941;
-    border-radius: 0.5em;
-
-    background-image: url('./shapes.jpg'); 
-}
-
-/* Banner Side of Container */
-.banner-side{
-    position: absolute;
-    z-index: 2;
-    right: 65%;
-
-    border: 0.1em solid #592941;
-    border-radius: 0.5em;
-
-    width: 35%;
-    height: 100%;
-
-    flex-direction: column;
-
-    background-color: #035E7B;
-    opacity: 1;
-
-    color: #EEFCF8;
-    text-align: center;
-
-    transition: 2s;
-}
-
-/* Form Side of Container */
-.form-side{
-    position: absolute;
-    z-index: 1;
-    right: 0;
-
-    border: 0.1em solid #592941;
-    border-radius: 0.5em;
-
-    width: 65%;
-    height: 100%;
-
-    background-color: #EEFCF8;
-    opacity: 1;
-
+  }
+  .preferred-merchant {
+    margin-bottom: 8px;
+    position: static;
+  }
+  .preferred-merchant span {
+    display: inline;
     font-weight: bold;
-    color: #035E7B;
-
-    transition: 2s;
+    font-size: 14px;
+    line-height: 20px;
+    color: #00b14f;
+  }
+  .merchant-description {
+    margin-top: 12px;
+    position: relative;
+  }
 }
 
-.send-right{
-    right: 0;
-}
-
-.send-left{
-    right: 35%;
-}
-
-
-/* Layout styling of forms, labels, inputs */
-.form-comp{
-    flex-direction: column;
-}
-
-.sign-up-form{
-    width: 50%;
-    flex-direction: column;
-}
-
-.sign-up-form > label{
-    padding: 0.5em;
-    width: 100%
-}
-
-.sign-up-form > label > input{
-    width: 100%
-}
-
-
-/* All Buttons Styling */
-button {
-    padding: 1em;
-
-    border: 1px solid #EEFCF8;
-    border-radius: 1em;
-    
-    background-color: #035E7B;
-
-    color: #EEFCF8;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-button:focus {
-    outline: 0;
-}
-
-button:hover{
-    opacity: 0.9;
-}
-
-/* All Inputs Styling */
-input {
-    padding: 0.5em;
-    border: 1px solid #035E7B;
+@media (min-width: 1024px) {
+  .merchants {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
